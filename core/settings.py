@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
     # Third-party
     'rest_framework',
     'rest_framework_simplejwt',
@@ -27,10 +28,13 @@ INSTALLED_APPS = [
     # Our apps
     'meetings',
     'action_items',
+
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'core.middleware.TraceMiddleware',  # ADD THIS FIRST
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,3 +125,9 @@ USE_I18N = True
 USE_TZ = True
 STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Production settings
+import sys
+if 'RENDER' in os.environ:
+    ALLOWED_HOSTS = ['*']
+    CORS_ALLOW_ALL_ORIGINS = True
