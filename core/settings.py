@@ -131,3 +131,8 @@ import sys
 if 'RENDER' in os.environ:
     ALLOWED_HOSTS = ['*']
     CORS_ALLOW_ALL_ORIGINS = True
+
+import dj_database_url
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.parse(os.environ['DATABASE_URL'])
