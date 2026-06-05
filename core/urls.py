@@ -13,8 +13,8 @@ def evaluation(request):
     return JsonResponse({
         "candidateName": "Ananth M",
         "email": "ananthmadhusoodanan1@gmail.com",
-        "repositoryUrl": "https://github.com/yourusername/hintro-meeting-intelligence",
-        "deployedUrl": "https://your-deployed-url.com",
+        "repositoryUrl": "https://github.com/ananthmadhusoodanan/hintro-meeting-intelligence",
+        "deployedUrl": "https://hintro-meeting-intelligence-t38v.onrender.com",
         "externalIntegration": "Email via Resend",
         "features": [
             "JWT Authentication",
